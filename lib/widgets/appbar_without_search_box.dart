@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:moviezz/consts/font_style.dart';
 
@@ -14,7 +12,6 @@ AppBar appBarWithOutSearchBox(AppProvider value) {
       InkWell(
         onTap: () {
           value.activateSearchBox();
-          print("object");
         },
         child: const Icon(
           Icons.search,

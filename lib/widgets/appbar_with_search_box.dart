@@ -17,7 +17,7 @@ AppBar appBarWithSearchBox(AppProvider value, BuildContext context,
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
               onTap: () async {
-                value.getData(controller.text.toString());
+                value.getSearchedMovieData(controller.text.toString());
                 await showSearchedMovie(
                   context,
                   controller,

@@ -3,13 +3,22 @@ import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
 import 'package:moviezz/model/popular_movies_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
+import 'package:moviezz/widgets/description_widgets/movie_poster_and_details.dart';
 
 import 'package:provider/provider.dart';
 
+import '../../widgets/description_widgets/get_all_actors.dart';
+
 class PopularMovieDescription extends StatelessWidget {
-  const PopularMovieDescription({super.key, required this.index});
+  const PopularMovieDescription(
+      {super.key,
+      required this.index,
+      required this.movieId,
+      required this.poster});
   final int index;
 
+  final int movieId;
+  final String poster;
   @override
   Widget build(BuildContext context) {
     var screenWidth = MediaQuery.of(context).size.width;
@@ -29,39 +38,30 @@ class PopularMovieDescription extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        Image.network(
-                          'https://image.tmdb.org/t/p/w500${movie.backdropPath}',
-                          height: screenHeight * .4,
-                          width: screenWidth,
-                          fit: BoxFit.fill,
-                          filterQuality: FilterQuality.high,
-                        ),
+                        MoviePosterAndDetails(
+                            screenHeight: screenHeight,
+                            screenWidth: screenWidth,
+                            poster: poster,
+                            snapshot: snapshot,
+                            index: index),
                         const SizedBox(
                           height: 15,
                         ),
                         RichText(
-                            text: TextSpan(
-                                style: FontStyle().style(19, appBarColor),
-                                children: [
-                              const TextSpan(text: "Title: "),
-                              TextSpan(
-                                text: movie.title,
-                                style: FontStyle().style(18, textColor),
-                              ),
-                              const TextSpan(text: "\nOriginal-Title: "),
-                              TextSpan(
-                                text: movie.originalTitle,
-                                style: FontStyle().style(18, textColor),
-                              ),
-                              TextSpan(
-                                text: "\n\n${movie.overview}",
-                                style: FontStyle().style(18, textColor),
-                              ),
-                            ])),
-                        Container(
-                          color: appBarColor,
-                          height: 150,
-                          width: screenWidth,
+                            text: TextSpan(children: [
+                          TextSpan(
+                            text: movie.title,
+                            style: FontStyle().boldStyle(18, appBarColor),
+                          ),
+                          TextSpan(
+                            text: "\n\n${movie.overview}",
+                            style: FontStyle().style(18, textColor),
+                          ),
+                        ])),
+                        GetAllActors(
+                          screenWidth: screenWidth,
+                          movieId: movieId,
+                          value: value,
                         ),
                         const SizedBox(
                           height: 15,

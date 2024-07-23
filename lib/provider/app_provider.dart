@@ -4,7 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as https;
-import 'package:moviezz/model/now_playing_movies_model.dart';
+import 'package:moviezz/model/actors_of_movie_model.dart';
 import 'package:moviezz/model/popular_movies_model.dart';
 import 'package:moviezz/model/top_rated_movies_model.dart';
 import 'package:moviezz/model/upcoming_movies_model.dart';
@@ -38,14 +38,14 @@ class AppProvider extends ChangeNotifier {
   var data;
   String errorMessage = "";
 
-  Future<void> getData(String movieName) async {
+  Future<void> getSearchedMovieData(String movieName) async {
     try {
       var response =
           await https.get(Uri.parse(serachBaseUrl + movieName + searchApiKey));
 
       if (response.statusCode == 200) {
         data = jsonDecode(response.body);
-        print("printtt $data");
+
         errorMessage = "";
         notifyListeners();
       } else {
@@ -66,7 +66,6 @@ class AppProvider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         data = jsonDecode(response.body);
-        print("printtt $data");
         errorMessage = "";
         notifyListeners();
       } else {
@@ -77,6 +76,14 @@ class AppProvider extends ChangeNotifier {
     } catch (e) {
       errorMessage = 'An error occurred, please try again.';
     }
+    notifyListeners();
+  }
+
+//to get movieId
+  String movieId = "";
+  void getMovieId(String id) {
+    movieId = id;
+    print("movieId: $movieId");
     notifyListeners();
   }
 
@@ -108,6 +115,19 @@ class AppProvider extends ChangeNotifier {
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
       return TopRatedMoviesModel.fromJson(data);
+    } else {
+      throw Exception('Failed to load top rated movies');
+    }
+  }
+
+  //to get all actors of upcoming_movie
+  Future<ActorsOfMovie> getMovieActors(int id) async {
+    final response =
+        await https.get(Uri.parse("$baseUrlForMovies$id/credits$apiKey"));
+    if (response.statusCode == 200) {
+      var actorData = jsonDecode(response.body);
+      print("movieId $actorData");
+      return ActorsOfMovie.fromJson(actorData);
     } else {
       throw Exception('Failed to load top rated movies');
     }

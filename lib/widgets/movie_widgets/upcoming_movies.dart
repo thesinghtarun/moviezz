@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:moviezz/consts/colors.dart';
+import 'package:moviezz/consts/font_style.dart';
 import 'package:moviezz/provider/app_provider.dart';
 import 'package:moviezz/screens/descriptions/upcoming_movies_description.dart';
 
@@ -47,9 +48,16 @@ class UpcomingMovies extends StatelessWidget {
                 ),
               );
             } else if (snapshot.hasError) {
-              return Center(child: Text('Error: ${snapshot.error}'));
+              return Center(
+                  child: Text(
+                'Check your Internet',
+                style: FontStyle().style(20, appBarColor),
+              ));
             } else if (!snapshot.hasData) {
-              return const Center(child: const Text('No data found'));
+              return const Center(
+                  child: Text(
+                "No data found",
+              ));
             } else {
               return SizedBox(
                 height: screenHeight * .35,
@@ -64,11 +72,16 @@ class UpcomingMovies extends StatelessWidget {
                   itemCount: snapshot.data!.results.length,
                   itemBuilder: (context, index, realIndex) {
                     var movie = snapshot.data!.results[index];
+                    String movieId = movie.id.toString();
                     return InkWell(
-                      onTap: () => Navigator.push(
+                      onTap: () {
+                        value.getMovieId(movieId);
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (_) => UpcomingMoviesDescription(index: index))),
+                                builder: (_) =>
+                                    UpcomingMoviesDescription(index: index,movieId:movie.id,poster:'https://image.tmdb.org/t/p/w500${movie.posterPath}')));
+                      },
                       child: Container(
                         margin: const EdgeInsets.all(8),
                         decoration: BoxDecoration(

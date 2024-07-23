@@ -8,3 +8,6 @@ const String baseUrlForMovies = "https://api.themoviedb.org/3/movie/";
 const String upcomingMovies = "${baseUrlForMovies}upcoming$apiKey";
 const String popularMovies = "${baseUrlForMovies}popular$apiKey";
 const String topRatedMovies = "${baseUrlForMovies}top_rated$apiKey";
+
+//to get all actor
+const String getActorsEndpoint = "/credits$apiKey";

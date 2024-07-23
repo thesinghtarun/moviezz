@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/model/top_rated_movies_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
+import 'package:moviezz/consts/font_style.dart';
 import 'package:moviezz/screens/descriptions/top_rated_movie_description.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
@@ -44,9 +45,13 @@ class TopRatedMovies extends StatelessWidget {
                 ),
               );
             } else if (snapshot.hasError) {
-              return Center(child: Text('Error: ${snapshot.error}'));
+              return Center(
+                  child: Text(
+                'Check your Internet',
+                style: FontStyle().style(20, appBarColor),
+              ));
             } else if (!snapshot.hasData) {
-              return const Center(child: const Text('No data found'));
+              return const Center(child: Text('No data found'));
             } else {
               return SizedBox(
                 height: 250,
@@ -60,8 +65,12 @@ class TopRatedMovies extends StatelessWidget {
                       onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) =>
-                                  TopRatedMovieDescription(index: index))),
+                              builder: (_) => TopRatedMovieDescription(
+                                    index: index,
+                                    movieId: movie.id,
+                                    poster:
+                                        'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+                                  ))),
                       child: Container(
                         margin: const EdgeInsets.all(8),
                         height: 250,

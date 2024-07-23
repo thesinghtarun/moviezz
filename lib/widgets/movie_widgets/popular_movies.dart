@@ -3,6 +3,7 @@ import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/provider/app_provider.dart';
 import 'package:moviezz/screens/descriptions/popular_movie_description.dart';
 import 'package:provider/provider.dart';
+import 'package:moviezz/consts/font_style.dart';
 import 'package:shimmer/shimmer.dart';
 
 import '../../model/popular_movies_model.dart';
@@ -48,9 +49,13 @@ class PopularMovies extends StatelessWidget {
                     ),
                   );
                 } else if (snapshot.hasError) {
-                  return Center(child: Text('Error: ${snapshot.error}'));
+                  return Center(
+                      child: Text(
+                    'Check your Internet',
+                    style: FontStyle().style(20, appBarColor),
+                  ));
                 } else if (!snapshot.hasData) {
-                  return Center(child: Text('No data found'));
+                  return const Center(child: Text('No data found'));
                 } else {
                   return ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -61,8 +66,12 @@ class PopularMovies extends StatelessWidget {
                         onTap: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (_) =>
-                                    PopularMovieDescription(index: index))),
+                                builder: (_) => PopularMovieDescription(
+                                      index: index,
+                                      movieId: movie.id,
+                                      poster:
+                                          'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+                                    ))),
                         child: Container(
                           margin: const EdgeInsets.all(8),
                           height: 250,
