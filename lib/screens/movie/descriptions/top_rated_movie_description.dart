@@ -3,10 +3,10 @@ import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
 import 'package:moviezz/model/top_rated_movies_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
-import 'package:moviezz/widgets/description_widgets/movie_poster_and_details.dart';
+import 'package:moviezz/screens/movie/widgets/description_widgets/movie_poster_and_details.dart';
 import 'package:provider/provider.dart';
 
-import '../../widgets/description_widgets/get_all_actors.dart';
+import '../widgets/description_widgets/get_all_actors.dart';
 
 class TopRatedMovieDescription extends StatelessWidget {
   const TopRatedMovieDescription(

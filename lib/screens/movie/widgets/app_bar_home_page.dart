@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../consts/colors.dart';
+import '../../../consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
 
-import '../provider/app_provider.dart';
+import '../../../provider/app_provider.dart';
 import 'show_searched_movie.dart';
 
 AppBar appBarHomePage(AppProvider value, BuildContext context,TextEditingController controller) {
@@ -60,6 +60,9 @@ AppBar appBarHomePage(AppProvider value, BuildContext context,TextEditingControl
                     ),
                   )
                 ],
-               
+                bottom: const TabBar(tabs: [
+                  Tab(text:"Movie"),
+                  Tab(text: "Serial",)
+                ]),
         );
   }

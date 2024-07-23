@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moviezz/consts/colors.dart';
-import 'package:moviezz/consts/font_style.dart';
 import 'package:moviezz/provider/app_provider.dart';
-import 'package:moviezz/widgets/description_widgets/get_actor_details.dart';
+import 'package:moviezz/screens/movie/widgets/description_widgets/get_actor_details.dart';
 
 class GetAllActors extends StatelessWidget {
   const GetAllActors({

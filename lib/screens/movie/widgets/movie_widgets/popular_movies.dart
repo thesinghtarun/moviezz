@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/provider/app_provider.dart';
-import 'package:moviezz/screens/descriptions/popular_movie_description.dart';
+import 'package:moviezz/screens/movie/descriptions/popular_movie_description.dart';
 import 'package:provider/provider.dart';
 import 'package:moviezz/consts/font_style.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../model/popular_movies_model.dart';
+import '../../../../model/popular_movies_model.dart';
 
 class PopularMovies extends StatelessWidget {
   const PopularMovies({

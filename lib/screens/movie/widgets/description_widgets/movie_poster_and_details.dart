@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moviezz/consts/font_style.dart';
 
-import '../../consts/colors.dart';
+import '../../../../consts/colors.dart';
 
-import '../../model/upcoming_movies_model.dart';
 
 class MoviePosterAndDetails extends StatelessWidget {
   const MoviePosterAndDetails({
