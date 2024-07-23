@@ -41,13 +41,16 @@ class GetAllActors extends StatelessWidget {
                     child: Column(
                       children: [
                         const SizedBox(
-                          height: 10,
+                          height: 20,
                         ),
                         InkWell(
                           onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => GetActorDetails(movieId: movieId,index: index,))),
+                                  builder: (_) => GetActorDetails(
+                                        movieId: movieId,
+                                        index: index,
+                                      ))),
                           child: CircleAvatar(
                             radius: 50,
                             onBackgroundImageError: (exception, stackTrace) {
@@ -58,12 +61,6 @@ class GetAllActors extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Text(
-                          softWrap: true,
-                          overflow: TextOverflow.fade,
-                          actors[index].name,
-                          style: FontStyle().style(13, textColor),
-                        )
                       ],
                     ));
               },

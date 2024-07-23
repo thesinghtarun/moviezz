@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moviezz/consts/colors.dart';
+import 'package:moviezz/consts/font_style.dart';
 import 'package:moviezz/provider/app_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -23,9 +24,10 @@ class GetActorDetails extends StatelessWidget {
             } else {
               var actors = snapshot.data!.cast;
               return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    height: screenHeight * .4,
+                    height: screenHeight * .7,
                     width: screenWidth,
                     decoration: BoxDecoration(
                         image: DecorationImage(
@@ -33,7 +35,23 @@ class GetActorDetails extends StatelessWidget {
                                 "https://image.tmdb.org/t/p/w500${actors[index].profilePath}"),
                             fit: BoxFit.cover)),
                   ),
-                  const Text("Details")
+                  RichText(
+                      text: TextSpan(
+                          style: FontStyle().style(25, appBarColor),
+                          children: [
+                        const TextSpan(text: "Name: "),
+                        TextSpan(
+                            text: actors[index].name,
+                            style: FontStyle().style(23, textColor)),
+                        const TextSpan(text: "\nCharacter in movie: "),
+                        TextSpan(
+                            text: actors[index].character,
+                            style: FontStyle().style(23, textColor)),
+                        const TextSpan(text: "\nKnown for: "),
+                        TextSpan(
+                            text: actors[index].knownForDepartment,
+                            style: FontStyle().style(23, textColor)),
+                      ]))
                 ],
               );
             }

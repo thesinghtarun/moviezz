@@ -24,7 +24,6 @@ class HomePage extends StatelessWidget {
     return Consumer<AppProvider>(
       builder: (context, value, child) => GestureDetector(
         onTap: () {
-          value.data = "";
           value.deactivateSearchBox();
           _searchController.text = "";
           _yearController.text = "";

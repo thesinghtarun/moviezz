@@ -19,7 +19,7 @@ void main() => runApp(
 
               cardColor: Colors.black,
               canvasColor: Colors.black,
-              // Customize other theme properties as needed
+              
             ),
             home: HomePage(),
           )),
