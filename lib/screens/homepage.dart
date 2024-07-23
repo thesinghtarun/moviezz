@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
 import 'package:moviezz/provider/app_provider.dart';
-
 import 'package:moviezz/widgets/movie_widgets/top_rated_movies.dart';
 import 'package:provider/provider.dart';
-import '../widgets/appbar_with_search_box.dart';
-import '../widgets/appbar_without_search_box.dart';
-
+import '../widgets/app_bar_home_page.dart';
 import '../widgets/movie_widgets/upcoming_movies.dart';
 import '../widgets/movie_widgets/popular_movies.dart';
 
@@ -30,11 +27,7 @@ class HomePage extends StatelessWidget {
           value.dontShowYearSearchBox();
         },
         child: Scaffold(
-          // backgroundColor: Colors.black,
-          appBar: value.isSeraching
-              ? appBarWithSearchBox(
-                  value, context, _searchController, _yearController)
-              : appBarWithOutSearchBox(value),
+          appBar: appBarHomePage(value, context, _searchController),
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(10.0),
