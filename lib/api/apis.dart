@@ -11,3 +11,12 @@ const String topRatedMovies = "${baseUrlForMovies}top_rated$apiKey";
 
 //to get all actor
 const String getActorsEndpoint = "/credits$apiKey";
+
+
+///////////////serial/////////////////
+const String baseUrlForSerial = "https://api.themoviedb.org/3/tv/";
+const String popularSerial = "${baseUrlForSerial}popular$apiKey";
+const String topRatedSerial = "${baseUrlForSerial}top_rated$apiKey";
+const String airingTodaySerial = "${baseUrlForSerial}airing_today$apiKey";
+
+

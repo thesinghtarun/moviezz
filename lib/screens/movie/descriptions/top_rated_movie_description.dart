@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
-import 'package:moviezz/model/top_rated_movies_model.dart';
+import 'package:moviezz/model/movie_model/movie_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
 import 'package:moviezz/screens/movie/widgets/description_widgets/movie_poster_and_details.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +22,7 @@ class TopRatedMovieDescription extends StatelessWidget {
     return Scaffold(
       body: Consumer<AppProvider>(
         builder: (context, value, child) {
-          return FutureBuilder<TopRatedMoviesModel>(
+          return FutureBuilder<MoviesModel>(
             future: value.getTopRatedMovies(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {

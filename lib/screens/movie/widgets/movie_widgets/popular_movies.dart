@@ -1,12 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:moviezz/consts/colors.dart';
+import 'package:moviezz/model/movie_model/movie_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
 import 'package:moviezz/screens/movie/descriptions/popular_movie_description.dart';
 import 'package:provider/provider.dart';
 import 'package:moviezz/consts/font_style.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../../model/popular_movies_model.dart';
 
 class PopularMovies extends StatelessWidget {
   const PopularMovies({
@@ -23,7 +24,7 @@ class PopularMovies extends StatelessWidget {
         width: screenWidth,
         child: Consumer<AppProvider>(
           builder: (context, value, child) {
-            return FutureBuilder<PopularMoviesModel>(
+            return FutureBuilder<MoviesModel>(
               future: value.getPopularMovies(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
@@ -35,7 +36,7 @@ class PopularMovies extends StatelessWidget {
                       width: screenWidth,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: 5,
+                        itemCount: kIsWeb?9:3,
                         itemBuilder: (context, index) => Container(
                           margin: const EdgeInsets.all(8),
                           height: 250,

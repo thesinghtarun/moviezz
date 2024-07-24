@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:moviezz/consts/colors.dart';
-
 import 'package:moviezz/provider/app_provider.dart';
 import 'package:moviezz/tabs/movies_tab.dart';
 import 'package:moviezz/tabs/serial_tab.dart';
-import 'package:moviezz/screens/movie/widgets/movie_widgets/top_rated_movies.dart';
 import 'package:provider/provider.dart';
 import 'movie/widgets/app_bar_home_page.dart';
-import 'movie/widgets/movie_widgets/upcoming_movies.dart';
-import 'movie/widgets/movie_widgets/popular_movies.dart';
+
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});

@@ -4,10 +4,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as https;
-import 'package:moviezz/model/actors_of_movie_model.dart';
-import 'package:moviezz/model/popular_movies_model.dart';
-import 'package:moviezz/model/top_rated_movies_model.dart';
-import 'package:moviezz/model/upcoming_movies_model.dart';
+import 'package:moviezz/model/movie_model/actors_of_movie_model.dart';
+import 'package:moviezz/model/movie_model/movie_model.dart';
+import 'package:moviezz/model/serial_model/serial_model.dart';
 
 import '../api/apis.dart';
 
@@ -88,33 +87,33 @@ class AppProvider extends ChangeNotifier {
   }
 
 //to get popular movies
-  Future<PopularMoviesModel> getPopularMovies() async {
+  Future<MoviesModel> getPopularMovies() async {
     final response = await https.get(Uri.parse(popularMovies));
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
-      return PopularMoviesModel.fromJson(data);
+      return MoviesModel.fromJson(data);
     } else {
       throw Exception('Failed to load popular movies');
     }
   }
 
 //to get now_playing movies
-  Future<UpcomingMoviesModel> getUpcomingMovies() async {
+  Future<MoviesModel> getUpcomingMovies() async {
     final response = await https.get(Uri.parse(upcomingMovies));
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
-      return UpcomingMoviesModel.fromJson(data);
+      return MoviesModel.fromJson(data);
     } else {
       throw Exception('Failed to load now playing movies');
     }
   }
 
   //to get now_playing movies
-  Future<TopRatedMoviesModel> getTopRatedMovies() async {
+  Future<MoviesModel> getTopRatedMovies() async {
     final response = await https.get(Uri.parse(topRatedMovies));
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
-      return TopRatedMoviesModel.fromJson(data);
+      return MoviesModel.fromJson(data);
     } else {
       throw Exception('Failed to load top rated movies');
     }
@@ -130,6 +129,41 @@ class AppProvider extends ChangeNotifier {
       return ActorsOfMovie.fromJson(actorData);
     } else {
       throw Exception('Failed to load top rated movies');
+    }
+  }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//to get popular_serial
+  Future<SeriesModel> getPopularSerial() async {
+    final response = await https.get(Uri.parse(popularSerial));
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body);
+      return SeriesModel.fromJson(data);
+    } else {
+      throw Exception('Failed to load popular movies');
+    }
+  }
+
+  //to get top_rated_serial
+  Future<SeriesModel> getTopRatedSerial() async {
+    final response = await https.get(Uri.parse(topRatedSerial));
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body);
+      return SeriesModel.fromJson(data);
+    } else {
+      throw Exception('Failed to load popular movies');
+    }
+  }
+
+  //to get airing_today_serial
+  Future<SeriesModel> getAiringTodaySerial() async {
+    final response = await https.get(Uri.parse(airingTodaySerial));
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body);
+      return SeriesModel.fromJson(data);
+    } else {
+      throw Exception('Failed to load popular movies');
     }
   }
 }

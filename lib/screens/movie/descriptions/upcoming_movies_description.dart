@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
+import 'package:moviezz/model/movie_model/movie_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
 
 import 'package:provider/provider.dart';
-
-import '../../../model/upcoming_movies_model.dart';
 import '../widgets/description_widgets/get_all_actors.dart';
 import '../widgets/description_widgets/movie_poster_and_details.dart';
 
@@ -26,7 +25,7 @@ class UpcomingMoviesDescription extends StatelessWidget {
     return Scaffold(
       body: Consumer<AppProvider>(
         builder: (context, value, child) {
-          return FutureBuilder<UpcomingMoviesModel>(
+          return FutureBuilder<MoviesModel>(
             future: value.getUpcomingMovies(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {

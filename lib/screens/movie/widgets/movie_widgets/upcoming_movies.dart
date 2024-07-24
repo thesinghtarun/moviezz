@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
+import 'package:moviezz/model/movie_model/movie_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
 import 'package:moviezz/screens/movie/descriptions/upcoming_movies_description.dart';
 
@@ -22,7 +24,7 @@ class UpcomingMovies extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AppProvider>(
       builder: (context, value, child) {
-        return FutureBuilder(
+        return FutureBuilder<MoviesModel>(
           future: value.getUpcomingMovies(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
@@ -34,7 +36,7 @@ class UpcomingMovies extends StatelessWidget {
                   width: screenWidth,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 5,
+                  itemCount: kIsWeb?9:3,
                     itemBuilder: (context, index) => Container(
                       margin: const EdgeInsets.all(8),
                       height: 250,
@@ -79,8 +81,11 @@ class UpcomingMovies extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (_) =>
-                                    UpcomingMoviesDescription(index: index,movieId:movie.id,poster:'https://image.tmdb.org/t/p/w500${movie.posterPath}')));
+                                builder: (_) => UpcomingMoviesDescription(
+                                    index: index,
+                                    movieId: movie.id,
+                                    poster:
+                                        'https://image.tmdb.org/t/p/w500${movie.posterPath}')));
                       },
                       child: Container(
                         margin: const EdgeInsets.all(8),

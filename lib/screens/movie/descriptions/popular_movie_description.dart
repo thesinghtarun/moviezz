@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
-import 'package:moviezz/model/popular_movies_model.dart';
+import 'package:moviezz/model/movie_model/movie_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
 import 'package:moviezz/screens/movie/widgets/description_widgets/movie_poster_and_details.dart';
 
@@ -26,7 +26,7 @@ class PopularMovieDescription extends StatelessWidget {
     return Scaffold(
       body: Consumer<AppProvider>(
         builder: (context, value, child) {
-          return FutureBuilder<PopularMoviesModel>(
+          return FutureBuilder<MoviesModel>(
             future: value.getPopularMovies(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {

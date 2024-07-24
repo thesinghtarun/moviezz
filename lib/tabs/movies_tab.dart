@@ -19,7 +19,7 @@ class MoviesTab extends StatelessWidget {
       body: Consumer<AppProvider>(
         builder: (context, value, child) {
           return Scaffold(
-            body:  SingleChildScrollView(
+            body: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
@@ -32,7 +32,7 @@ class MoviesTab extends StatelessWidget {
                     UpcomingMovies(
                         screenHeight: screenHeight, screenWidth: screenWidth),
                     const SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     Text(
                       "Top Rated Movies",
@@ -40,7 +40,7 @@ class MoviesTab extends StatelessWidget {
                     ),
                     TopRatedMovies(screenWidth: screenWidth),
                     const SizedBox(
-                      height: 30,
+                      height: 20,
                     ),
                     Text(
                       "Popular Movies",
@@ -51,7 +51,6 @@ class MoviesTab extends StatelessWidget {
                 ),
               ),
             ),
-          
           );
         },
       ),
