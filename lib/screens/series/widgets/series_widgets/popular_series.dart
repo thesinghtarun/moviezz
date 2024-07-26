@@ -4,7 +4,6 @@ import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/model/serial_model/serial_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
 import 'package:moviezz/consts/font_style.dart';
-import 'package:moviezz/screens/movie/descriptions/top_rated_movie_description.dart';
 import 'package:moviezz/screens/series/description/popular_series_description.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';

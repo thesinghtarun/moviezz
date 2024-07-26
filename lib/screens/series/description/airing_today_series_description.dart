@@ -3,7 +3,6 @@ import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
 import 'package:moviezz/model/serial_model/serial_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
-import 'package:moviezz/screens/movie/widgets/description_widgets/movie_poster_and_details.dart';
 import 'package:moviezz/screens/series/widgets/description_widgets/series_poster_and_details.dart';
 
 import 'package:provider/provider.dart';
