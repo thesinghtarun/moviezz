@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moviezz/provider/app_provider.dart';
-import 'package:moviezz/screens/serial/widgets/serial_widgets/popular_series.dart';
-import 'package:moviezz/screens/serial/widgets/serial_widgets/airing_today_series.dart';
-import 'package:moviezz/screens/serial/widgets/serial_widgets/top_rated_series.dart';
+import 'package:moviezz/screens/series/widgets/series_widgets/popular_series.dart';
+import 'package:moviezz/screens/series/widgets/series_widgets/airing_today_series.dart';
+import 'package:moviezz/screens/series/widgets/series_widgets/top_rated_series.dart';
 import 'package:provider/provider.dart';
 
 import '../consts/colors.dart';

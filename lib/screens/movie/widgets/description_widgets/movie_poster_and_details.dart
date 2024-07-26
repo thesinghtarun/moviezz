@@ -23,7 +23,8 @@ class MoviePosterAndDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var movie = snapshot.data!.results[index];
-    return Stack(
+    return 
+    Stack(
       children: [
         Image.network(
           'https://image.tmdb.org/t/p/w500${movie.backdropPath}',
