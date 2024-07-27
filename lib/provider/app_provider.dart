@@ -13,6 +13,7 @@ import '../api/apis.dart';
 class AppProvider extends ChangeNotifier {
   bool isSeraching = false;
   bool showYearTextBox = false;
+  bool searchIcon = false;
 
   void showYearSearchBox() {
     showYearTextBox = true;
@@ -21,6 +22,15 @@ class AppProvider extends ChangeNotifier {
 
   void dontShowYearSearchBox() {
     showYearTextBox = false;
+    notifyListeners();
+  }
+
+  void showSearchIcon(int index) {
+    if (index < 1 && index > -1) {
+      searchIcon = true;
+    } else {
+      searchIcon = false;
+    }
     notifyListeners();
   }
 

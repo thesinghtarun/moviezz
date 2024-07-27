@@ -3,13 +3,12 @@ import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
 import 'package:moviezz/model/serial_model/serial_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
-
-import 'package:moviezz/screens/series/widgets/description_widgets/series_poster_and_details.dart';
+import 'package:moviezz/widgets/series/widgets_series/description_widgets/series_poster_and_details.dart';
 
 import 'package:provider/provider.dart';
 
-class PopularSeriesDescription extends StatelessWidget {
-  const PopularSeriesDescription(
+class TopRatedSeriesDescription extends StatelessWidget {
+  const TopRatedSeriesDescription(
       {super.key,
       required this.index,
       required this.seriesId,

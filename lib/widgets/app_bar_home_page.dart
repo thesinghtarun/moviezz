@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../consts/colors.dart';
+import '../consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
 
-import '../../../provider/app_provider.dart';
+import '../provider/app_provider.dart';
 import 'show_searched_movie.dart';
 
 AppBar appBarHomePage(
@@ -62,12 +62,19 @@ AppBar appBarHomePage(
             )
           ],
     bottom: TabBar(
+        onTap: (index) {
+          value.showSearchIcon(index);
+          print("::$index");
+        },
         indicatorColor: appBarColor,
         labelStyle: FontStyle().style(20, appBarColor),
         tabs: const [
           Tab(text: "Movie"),
           Tab(
             text: "Series",
+          ),
+          Tab(
+            text: "Genre",
           )
         ]),
   );

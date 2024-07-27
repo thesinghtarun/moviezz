@@ -3,9 +3,9 @@ import 'package:moviezz/provider/app_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../consts/colors.dart';
-import '../screens/movie/widgets/movie_widgets/popular_movies.dart';
-import '../screens/movie/widgets/movie_widgets/top_rated_movies.dart';
-import '../screens/movie/widgets/movie_widgets/upcoming_movies.dart';
+import '../widgets/movie/widgets_movie/movie_helper_widgets/popular_movies.dart';
+import '../widgets/movie/widgets_movie/movie_helper_widgets/top_rated_movies.dart';
+import '../widgets/movie/widgets_movie/movie_helper_widgets/upcoming_movies.dart';
 import 'package:moviezz/consts/font_style.dart';
 
 class MoviesTab extends StatelessWidget {

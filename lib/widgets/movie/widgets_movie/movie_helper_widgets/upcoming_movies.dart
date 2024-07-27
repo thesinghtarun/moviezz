@@ -5,7 +5,7 @@ import 'package:moviezz/consts/colors.dart';
 import 'package:moviezz/consts/font_style.dart';
 import 'package:moviezz/model/movie_model/movie_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
-import 'package:moviezz/screens/movie/descriptions/upcoming_movies_description.dart';
+import 'package:moviezz/widgets/movie/descriptions/upcoming_movies_description.dart';
 
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';

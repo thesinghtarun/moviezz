@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:moviezz/consts/font_style.dart';
 import 'package:provider/provider.dart';
 
-import '../../../consts/colors.dart';
-import '../../../provider/app_provider.dart';
+import '../consts/colors.dart';
+import '../provider/app_provider.dart';
 
 Future<dynamic> showSearchedMovie(
   BuildContext context,

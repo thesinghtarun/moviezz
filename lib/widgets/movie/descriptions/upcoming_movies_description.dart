@@ -5,8 +5,8 @@ import 'package:moviezz/model/movie_model/movie_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
 
 import 'package:provider/provider.dart';
-import '../widgets/description_widgets/get_all_actors.dart';
-import '../widgets/description_widgets/movie_poster_and_details.dart';
+import '../widgets_movie/description_widgets/get_all_actors.dart';
+import '../widgets_movie/description_widgets/movie_poster_and_details.dart';
 
 class UpcomingMoviesDescription extends StatelessWidget {
   const UpcomingMoviesDescription(

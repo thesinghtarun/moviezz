@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:moviezz/provider/app_provider.dart';
+import 'package:moviezz/tabs/genre_tab.dart';
 import 'package:moviezz/tabs/movies_tab.dart';
 import 'package:moviezz/tabs/serial_tab.dart';
 import 'package:provider/provider.dart';
-import 'movie/widgets/app_bar_home_page.dart';
+import '../widgets/app_bar_home_page.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -16,7 +17,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return DefaultTabController(
-      length: 2,
+      length: 3,
+     initialIndex: 0, 
       child: Consumer<AppProvider>(
         builder: (context, value, child) => GestureDetector(
           onTap: () {
@@ -29,7 +31,8 @@ class HomePage extends StatelessWidget {
             appBar: appBarHomePage(value, context, _searchController),
             body: const TabBarView(children: [
               MoviesTab(),
-              SerialTab()
+              SerialTab(),
+              GenreTab()
             ])
            ),
         ),

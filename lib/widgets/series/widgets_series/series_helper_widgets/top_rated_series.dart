@@ -1,15 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:moviezz/consts/colors.dart';
-import 'package:moviezz/model/movie_model/movie_model.dart';
+import 'package:moviezz/model/serial_model/serial_model.dart';
 import 'package:moviezz/provider/app_provider.dart';
 import 'package:moviezz/consts/font_style.dart';
-import 'package:moviezz/screens/movie/descriptions/top_rated_movie_description.dart';
+import 'package:moviezz/widgets/series/description/top_rated_series_description.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 
-class TopRatedMovies extends StatelessWidget {
-  const TopRatedMovies({
+class TopRatedSeries extends StatelessWidget {
+  const TopRatedSeries({
     super.key,
     required this.screenWidth,
   });
@@ -20,8 +20,8 @@ class TopRatedMovies extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AppProvider>(
       builder: (context, value, child) {
-        return FutureBuilder<MoviesModel>(
-          future: value.getTopRatedMovies(),
+        return FutureBuilder<SeriesModel>(
+          future: value.getTopRatedSerial(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Shimmer.fromColors(
@@ -32,7 +32,7 @@ class TopRatedMovies extends StatelessWidget {
                   width: screenWidth,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                  itemCount: kIsWeb?9:3,
+                    itemCount: kIsWeb ? 9 : 3,
                     itemBuilder: (context, index) => Container(
                       margin: const EdgeInsets.all(8),
                       height: 250,
@@ -61,17 +61,16 @@ class TopRatedMovies extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: snapshot.data!.results.length,
                   itemBuilder: (context, index) {
-                    var movie = snapshot.data!.results[index];
+                    var series = snapshot.data!.results[index];
                     return InkWell(
                       onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (_) => TopRatedMovieDescription(
-                                    index: index,
-                                    movieId: movie.id,
-                                    poster:
-                                        'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-                                  ))),
+                              builder: (_) => TopRatedSeriesDescription(
+                                  index: index,
+                                  seriesId: series.id,
+                                  poster:
+                                      "https://image.tmdb.org/t/p/w500${series.posterPath}"))),
                       child: Container(
                         margin: const EdgeInsets.all(8),
                         height: 250,
@@ -81,7 +80,7 @@ class TopRatedMovies extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
                             image: NetworkImage(
-                              'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+                              'https://image.tmdb.org/t/p/w500${series.posterPath}',
                             ),
                             fit: BoxFit.cover,
                           ),
